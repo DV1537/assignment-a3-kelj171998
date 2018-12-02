@@ -17,7 +17,6 @@ public:
 	bool isConvex() override;
 	double distance(Shape& shape) override;
 	Line& operator=(const Line& copy);
-	double operator+(Shape& otherObj) override;
 };
 
 #endif

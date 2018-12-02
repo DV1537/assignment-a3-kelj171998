@@ -24,9 +24,6 @@ public:
 	bool FoundIntersection(Vertex coordinates[], const int size);
 	Polygon& operator=(const Polygon& otherPolygon);
 	Polygon& operator+(double coordinates[addTwoPoints]);
-	double operator+(Shape& otherObj) override;
-
-	void ShowCoords();
 };
 
 #endif

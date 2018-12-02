@@ -13,6 +13,11 @@
 #include "Triangle.hpp"
 #include "Polygon.hpp"
 
+enum ReadLine {
+	first,
+	second
+};
+
 double* ReadFileAndStoreValues(std::string fileName, int& numOfElements);
 Shape* IdentifyShapeToCalcArea(double coordinates[], const int numOfElements);
 
@@ -40,6 +45,9 @@ int main()
 
 	coordsForShape2.numArr = ReadFileAndStoreValues("sh2.txt", coordsForShape2.sizeOfArr);
 	Shape* shape2 = IdentifyShapeToCalcArea(coordsForShape2.numArr, coordsForShape2.sizeOfArr);
+
+	double area = *shape1 + *shape2;
+	std::cout << "Area: " << area;
 
 	delete shape1;
 	delete shape2;
@@ -135,3 +143,153 @@ std::ostream& operator<<(std::ostream& out, const Vertices& vertices) {
 	}
 	return out;
 }
+
+/*
+double* ReadFileAndStoreValues(std::string fileName, int& numOfElements, ReadLine lineToRead) {
+	std::ifstream file = std::ifstream(fileName);
+
+	if (file.fail()) {
+		std::cout << "Error: Couldn't open file!";
+		std::cin.get();
+		exit(EXIT_FAILURE);
+	}
+
+	double* coordinates = nullptr;
+	std::string readLine = "";
+	getline(file, readLine);
+
+	if (lineToRead == ReadLine::first)
+		file.seekg(file.beg);
+
+	std::cout << "Read: " << readLine << '\n';
+
+	// Remove all spaces
+	const int removeSpaces = readLine.length() / 2;
+	const int lenOfLine = readLine.length() - removeSpaces;
+	int lenOfLine2 = 0;
+	if (lineToRead == ReadLine::second) {
+		std::cout << "Length: " << readLine.length() << " ";
+		std::cout << "Size: " << lenOfLine << '\n';
+		lenOfLine2 = readLine.length() - lenOfLine;
+
+		coordinates = new double[lenOfLine2];
+		for (int i = 0; i < lenOfLine2; i++) {
+			file >> coordinates[i];
+		}
+
+		numOfElements = lenOfLine2;
+	}
+	else {
+		coordinates = new double[lenOfLine];
+		for (int i = 0; i < lenOfLine; i++) {
+			file >> coordinates[i];
+		}
+
+		numOfElements = lenOfLine;
+	}
+
+	file.close();
+
+	if (numOfElements % 2 != 0) {
+		std::cout << "Error: Wrong file format!";
+		std::cin.get();
+		exit(EXIT_FAILURE);
+	}
+
+	return coordinates;
+}*/
+
+/*
+	std::string readLines = "";
+	while (file >> readLines) {
+		readNum = std::stod(readLines);
+		if (numOfElements < currentSize) {
+			coordinates[numOfElements] = readNum;
+		}
+		else {
+			double* tempCopy = new double[currentSize + numOfElements];
+
+			// Copy array
+			for (int i = 0; i < numOfElements; i++) {
+				tempCopy[i] = coordinates[i];
+			}
+			delete[] coordinates;
+			coordinates = nullptr;
+
+			coordinates = tempCopy;
+			currentSize += numOfElements;
+
+			coordinates[numOfElements] = readNum;
+		}
+
+		std::cout << "N: " << numOfElements << '\n';
+		std::cout << readLines << '\n';
+		std::cout << readLines.at(0) << '\n';
+
+		if (readLines.at(0) == '\n') {
+			std::cout << "\nAt end of string\n";
+		}
+
+		numOfElements++;
+
+	}
+*/
+
+/*
+double* ReadFileAndStoreValues(std::string fileName, int& numOfElements) {
+	std::ifstream file = std::ifstream(fileName);
+
+	if (file.fail()) {
+		std::cout << "Error: Couldn't open file!";
+		std::cin.get();
+		exit(EXIT_FAILURE);
+	}
+
+	double readNum = 0.0;
+	int currentSize = 2;
+	double* coordinates = new double[currentSize];
+
+	std::string readLines = "";
+	while (file >> readLines) {
+
+		std::cout << "At: " << readLines.at(0) << '\n';
+		if (readLines.at(0) == '\n')
+			std::cout << "Newline";
+
+		readNum = std::stod(readLines);
+		if (numOfElements < currentSize) {
+			coordinates[numOfElements] = readNum;
+		}
+		else {
+			double* tempCopy = new double[currentSize + numOfElements];
+
+			// Copy array
+			for (int i = 0; i < numOfElements; i++) {
+				tempCopy[i] = coordinates[i];
+			}
+			delete[] coordinates;
+			coordinates = nullptr;
+
+			coordinates = tempCopy;
+			currentSize += numOfElements;
+
+			coordinates[numOfElements] = readNum;
+		}
+
+		numOfElements++;
+
+	}
+
+	std::cout << "Read in: " << readLines << '\n';
+
+	file.close();
+
+	if (numOfElements % 2 != 0) {
+		std::cout << "Error: Wrong file format!";
+		std::cin.get();
+		exit(EXIT_FAILURE);
+	}
+
+	return coordinates;
+}
+*/

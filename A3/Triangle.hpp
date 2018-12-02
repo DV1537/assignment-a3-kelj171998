@@ -22,7 +22,6 @@ public:
 	bool isConvex() override;
 	double distance(Shape& shape) override;
 	Triangle& operator=(const Triangle& copy);
-	double operator+(Shape& otherObj) override;
 };
 
 #endif

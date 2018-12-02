@@ -80,11 +80,3 @@ Triangle& Triangle::operator=(const Triangle& copy) {
 
 	return *this;
 }
-
-double Triangle::operator+(Shape& otherShape) {
-	double totalArea = 0.0;
-	if (this != &otherShape) {
-		totalArea = this->area() + otherShape.area();
-	}
-	return totalArea;
-}

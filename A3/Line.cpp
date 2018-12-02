@@ -59,11 +59,3 @@ Line& Line::operator=(const Line& copy) {
 
 	return *this;
 }
-
-double Line::operator+(Shape& otherShape) {
-	double totalArea = 0.0;
-	if (this != &otherShape) {
-		totalArea = this->area() + otherShape.area();
-	}
-	return totalArea;
-}

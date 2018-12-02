@@ -48,11 +48,3 @@ Point& Point::operator=(const Point& copy) {
 Point::Vertex Point::getVertices() const {
 	return this->point;
 }
-
-double Point::operator+(Shape& otherShape) {
-	double totalArea = 0.0;
-	if (this != &otherShape) {
-		totalArea = this->area() + otherShape.area();
-	}
-	return totalArea;
-}

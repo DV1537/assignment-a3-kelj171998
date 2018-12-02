@@ -323,23 +323,3 @@ Polygon& Polygon::operator+(double addCoords[addTwoPoints]) {
 
 	return *this;
 }
-
-void Polygon::ShowCoords() {
-	std::cout << "\n\n\n\nShow coords: \n";
-
-	for (int i = 0; i < this->numOfElements; i++) {
-		if (i % 2 == 0)
-			std::cout << "X: " << this->coordinates[i];
-		else
-			std::cout << "\tY: " << this->coordinates[i] << '\n';
-		
-	}
-}
-
-double Polygon::operator+(Shape& otherShape) {
-	double totalArea = 0.0;
-	if (this != &otherShape) {
-		totalArea = this->area() + otherShape.area();
-	}
-	return totalArea;
-}
