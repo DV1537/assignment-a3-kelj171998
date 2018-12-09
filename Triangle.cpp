@@ -12,6 +12,16 @@ Triangle::Triangle(double startX, double startY, double middleX, double middleY,
 
 	this->endPoint.x = endX;
 	this->endPoint.y = endY;
+
+	this->sizeOfVertices = 6;
+	this->vertices = new double[this->sizeOfVertices];
+
+	this->vertices[0] = this->startPoint.x;
+	this->vertices[1] = this->startPoint.y;
+	this->vertices[2] = this->middlePoint.x;
+	this->vertices[3] = this->middlePoint.y;
+	this->vertices[4] = this->endPoint.x;
+	this->vertices[5] = this->endPoint.y;
 }
 
 Triangle::~Triangle() {

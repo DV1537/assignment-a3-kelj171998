@@ -4,6 +4,12 @@
 Point::Point(double x, double y) {
 	this->point.x = x;
 	this->point.y = y;
+
+	this->sizeOfVertices = 2;
+	this->vertices = new double[this->sizeOfVertices];
+
+	this->vertices[0] = this->point.x;
+	this->vertices[1] = this->point.y;
 }
 
 Point::~Point() {

@@ -6,7 +6,6 @@ class Triangle : public Shape {
 	Vertex startPoint;
 	Vertex middlePoint;
 	Vertex endPoint;
-	const double PI = 3.14159;
 
 public:
 	Triangle(double startX, double startY, 

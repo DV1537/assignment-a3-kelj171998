@@ -10,6 +10,11 @@ Polygon::Polygon(double* coordinates) {
 Polygon::Polygon(double* coordinates, const int numOfCoordinates) {
 	this->coordinates = coordinates;
 	this->numOfElements = numOfCoordinates;
+
+	this->sizeOfVertices = this->numOfElements;
+	this->vertices = new double[this->sizeOfVertices];
+	for (int i = 0; i < this->numOfElements; i++)
+		this->vertices[i] = this->coordinates[i];
 }
 
 Polygon::~Polygon() {

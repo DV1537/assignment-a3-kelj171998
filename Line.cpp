@@ -8,6 +8,14 @@ Line::Line(double x1, double y1, double x2, double y2) {
 
 	this->endPoint.x = x2;
 	this->endPoint.y = y2;
+
+	this->sizeOfVertices = 4;
+	this->vertices = new double[this->sizeOfVertices];
+
+	this->vertices[0] = this->startPoint.x;
+	this->vertices[1] = this->startPoint.y;
+	this->vertices[2] = this->endPoint.x;
+	this->vertices[3] = this->endPoint.y;
 }
 
 Line::~Line() {
